@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>kindred.js</title>
+    <meta name="viewport" content="width=530">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <style media="screen">
+      html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:0 0}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:0 0}ins{text-decoration:none}ins,mark{background-color:#ff9;color:#000}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+
+      main {
+        padding: 5rem;
+        font-size: 0.7rem;
+        font-family: 'Roboto Mono';
+        line-height: 1.45rem;
+        max-width: 30rem;
+      }
+
+      h1 {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      h1:before {
+        content: '# ';
+      }
+
+      p {
+        font-weight: 100;
+      }
+
+      a:before {
+        content: '[';
+        color: #dfdfdf;
+      }
+
+      a:after  {
+        color: #dfdfdf;
+        content: '](' attr(href) ')';
+      }
+
+      a {
+        white-space: nowrap;
+        /*color: #59f;*/
+        color: #000;
+        text-decoration: none;
+      }
+
+      h1, p, ul {
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      ul li:before {
+        content: '  * ';
+        white-space: pre;
+        color: #444;
+      }
+
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      @media screen and (max-width: 600px) {
+        main {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>kindred.js</h1>
+      <p>
+        Kindred is a work-in-progress WebGL "framework". It's not ready yet
+        (that might take a while) but you're welcome to poke around the source on
+        <a target="_blank" href="https://github.com/kindredjs">github</a>
+        <span class="nowrap">¯\_(ツ)_/¯</span>
+      </p>
+      <p>
+        In the meantime, you should check these projects out :)
+      </p>
+      <ul id="shuffler">
+        <li><a target="_blank" href="https://regl.party/">regl</a></li>
+        <li><a target="_blank" href="https://threejs.org/">three.js</a></li>
+        <li><a target="_blank" href="https://stack.gl/">stack.gl</a></li>
+        <li><a target="_blank" href="https://github.com/stackgl/glslify">glslify</a></li>
+        <li><a target="_blank" href="https://unity3d.com/">unity</a></li>
+      </ul>
+    </main>
+    <script type="text/javascript">
+      // In no particular order:
+      var shuffler = document.getElementById('shuffler')
+      var children = shuffler.children
+      if (children) {
+        children = [].slice.call(children).sort(function () {
+          return Math.random() - 0.5
+        })
+
+        for (var i = 0; i < children.length; i++) {
+          shuffler.appendChild(children[i])
+        }
+      }
+    </script>
+  </body>
+</html>
